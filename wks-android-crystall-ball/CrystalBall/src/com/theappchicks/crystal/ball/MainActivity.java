@@ -24,43 +24,28 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+				String[] answers = {
+						"It is certain",
+						"It is decidedly so",
+						"All signs say YES",
+						"The stars are not aligned",
+						"My reply is no",
+						"It is doubtful",
+						"Better not tell you now",
+						"Concentrate and ask again",
+						"Unable to answer now", 
+						"It is hard to say"
+						};
+				
 				// The button was clicked, so set the text in the answer label with the answer
 				String answer="";
 				
 				//Randomly select one of the answers: Yes, No, Maybe
 				Random randomGenerator = new Random(); //Construct a random number generator
-				int randomNumber = randomGenerator.nextInt(3);
+				int randomNumber = randomGenerator.nextInt(answers.length);
 				
-				
-				//Check the value of randomNumber and set the answer accordingly
-				/*
-				 * Convert the randomNumber to a text answer
-				 *	0 = Yes
-				 *	1 = No
-				 *	2 = Maybe
-				 */
-			
-				//if random number equals 0 then
-				if(randomNumber == 0)
-				{
-					//set answer equal to Yes
-					answer = "Yes";
-				}
-				else if(randomNumber == 1)//else if random number equals 1 then 
-				{
-					//set answer equal to No
-					answer = "No";
-				}
-				else if(randomNumber == 2) //if random number equals 2 then
-				{
-					//set answer equal to Maybe
-					answer = "Maybe";
-				}
-				else
-				{
-					//set answer equal to error
-					answer = "Sorry, there was an error";
-				}
+				//now get the random answer from the answers array from above, give me the element at index randomNumber
+				answer = answers[randomNumber];
 				
 				//Update the label with our dynamic answer
 				answerLabel.setText(answer);
