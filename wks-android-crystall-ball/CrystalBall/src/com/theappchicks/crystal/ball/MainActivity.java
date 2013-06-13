@@ -1,5 +1,7 @@
 package com.theappchicks.crystal.ball;
 
+import java.util.Random;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,8 +28,11 @@ public class MainActivity extends Activity {
 				String answer="";
 				
 				//Randomly select one of the answers: Yes, No, Maybe
+				Random randomGenerator = new Random(); //Construct a random number generator
+				int randomNumber = randomGenerator.nextInt(3);
+				answer = Integer.toString(randomNumber);
 				
-				//Update the label with our dynamic answser
+				//Update the label with our dynamic answer
 				answerLabel.setText(answer);
 				
 			}
