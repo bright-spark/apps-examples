@@ -1,7 +1,5 @@
 package com.theappchicks.crystal.ball;
 
-import java.util.Random;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +9,9 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
+	//construct a new class member crystallBall private object for use within this class (only available in this class)
+	private CrystalBall mCrystalBall = new CrystalBall();
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,29 +25,8 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				String[] answers = {
-						"It is certain",
-						"It is decidedly so",
-						"All signs say YES",
-						"The stars are not aligned",
-						"My reply is no",
-						"It is doubtful",
-						"Better not tell you now",
-						"Concentrate and ask again",
-						"Unable to answer now", 
-						"It is hard to say"
-						};
-				
-				// The button was clicked, so set the text in the answer label with the answer
-				String answer="";
-				
-				//Randomly select one of the answers: Yes, No, Maybe
-				Random randomGenerator = new Random(); //Construct a random number generator
-				int randomNumber = randomGenerator.nextInt(answers.length);
-				
-				//now get the random answer from the answers array from above, give me the element at index randomNumber
-				answer = answers[randomNumber];
-				
+				String answer = mCrystalBall.getAnAnswer();
+
 				//Update the label with our dynamic answer
 				answerLabel.setText(answer);
 				
