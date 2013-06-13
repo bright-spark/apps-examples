@@ -1,3 +1,0 @@
-INDEX VERSION 1.126+/Users/carey/apps/apps-examples/wks-android-crystall-ball/.metadata/.plugins/org.eclipse.jdt.core
-1200291651.index
-2695938466.index
