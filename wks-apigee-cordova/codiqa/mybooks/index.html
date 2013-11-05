@@ -14,6 +14,38 @@
   <script src="js/jquery.mobile-1.3.1.min.js"></script>
   <script src="js/codiqa.ext.min.js"></script>
   <script src="js/my-books.js"></script>
+
+    <script src="js/apigee.js"></script>
+
+    <script type="text/javascript">
+
+        // Initializing the SDK
+        var client = new Apigee.Client({
+            orgName:'theappchick', // Your Apigee.com username for App Services
+            appName:'sandbox' // Your Apigee App Services app name
+        });
+
+        // Reading data
+        var books = new Apigee.Collection({ "client":client, "type":"mybooks" });
+        books.fetch(
+                function(err, data) { // Success
+                    if (err) {
+                        alert("read failed");
+                    } else {
+                        while(books.hasNextEntity()) {
+                            var book = books.getNextEntity();
+                            alert(book.get("title")); // Output the title of the book
+                        }
+                    }
+                });
+
+        // Uncomment the next 4 lines if you want to write data
+
+        // book = { "title": "the old man and the sea" };
+        // books.addEntity(book, function (error, response) {
+        //  if (error) { alert("write failed");
+        //  } else { alert("write succeeded"); } });
+    </script>
 </head>
 <body>
   <div data-role="page" data-control-title="Home" id="page1">
@@ -29,10 +61,12 @@
       <div data-role="content">
           <ul data-role="listview" data-divider-theme="" data-inset="false">
               <li data-theme="c">
-                  First Title
+                  <h3>First Title</h3>
+                  <p>First author</p>
               </li>
               <li data-theme="c">
-                  Second Title
+                  <h3>Second Title</h3>
+                  <p>Second author</p>
               </li>
           </ul>
       </div>
