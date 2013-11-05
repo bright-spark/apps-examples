@@ -38,16 +38,10 @@
                         $('#books-list').empty();
 
                         while (books.hasNextEntity()) {
-                            var current_book = books.getNextEntity();
-
-                            var title = current_book.get('title');
-                            title = author == undefined ? current_book.get('title') : author;
-
-                            var author = current_book.get('author');
-                            author = author == undefined ? current_book.get('author') : author;
+                            var book = books.getNextEntity();
 
                             // Output the book on the page
-                            $('#books-list').append('<li><h3>' + title + '</h3><p>' + author + '</p></li>');
+                            $('#books-list').append('<li><h3>' + book.get('title') + '</h3><p>' + book.get('author') + '</p></li>');
                         }
 
                         // Re-apply jQuery Mobile styles
